@@ -27,7 +27,7 @@
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/item_transformer_name_text_margin"
+            android:layout_marginStart="@dimen/item_transformer_name_text_margin_start"
             app:layout_constraintStart_toEndOf="@+id/imgTeam"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Optimus Prime" />
@@ -37,8 +37,8 @@
             android:id="@+id/tvStrength"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_item_transformer_stats_strength"
-            android:layout_marginTop="@dimen/item_transformer_stats_text_margin"
+            android:text="@string/text_transformer_stats_strength"
+            android:layout_marginTop="@dimen/transformer_stats_text_margin_top"
             app:layout_constraintStart_toStartOf="@+id/tvName"
             app:layout_constraintTop_toBottomOf="@+id/tvName"/>
 
@@ -57,8 +57,8 @@
             android:id="@+id/tvIntelligence"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_item_transformer_stats_intelligence"
-            android:layout_marginTop="@dimen/item_transformer_stats_text_margin"
+            android:text="@string/text_transformer_stats_intelligence"
+            android:layout_marginTop="@dimen/transformer_stats_text_margin_top"
             app:layout_constraintStart_toStartOf="@+id/tvName"
             app:layout_constraintTop_toBottomOf="@+id/tvStrength"/>
 
@@ -77,8 +77,8 @@
             android:id="@+id/tvSpeed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_item_transformer_stats_speed"
-            android:layout_marginTop="@dimen/item_transformer_stats_text_margin"
+            android:text="@string/text_transformer_stats_speed"
+            android:layout_marginTop="@dimen/transformer_stats_text_margin_top"
             app:layout_constraintStart_toStartOf="@+id/tvName"
             app:layout_constraintTop_toBottomOf="@+id/tvIntelligence"/>
 
@@ -97,8 +97,8 @@
             android:id="@+id/tvEndurance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_item_transformer_stats_endurance"
-            android:layout_marginTop="@dimen/item_transformer_stats_text_margin"
+            android:text="@string/text_transformer_stats_endurance"
+            android:layout_marginTop="@dimen/transformer_stats_text_margin_top"
             app:layout_constraintStart_toStartOf="@+id/tvName"
             app:layout_constraintTop_toBottomOf="@+id/tvSpeed"/>
 
@@ -117,8 +117,8 @@
             android:id="@+id/tvRank"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_item_transformer_stats_rank"
-            android:layout_marginTop="@dimen/item_transformer_stats_text_margin"
+            android:text="@string/text_transformer_stats_rank"
+            android:layout_marginTop="@dimen/transformer_stats_text_margin_top"
             app:layout_constraintStart_toStartOf="@+id/tvName"
             app:layout_constraintTop_toBottomOf="@+id/tvEndurance"/>
 
@@ -137,8 +137,8 @@
             android:id="@+id/tvCourage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_item_transformer_stats_courage"
-            android:layout_marginTop="@dimen/item_transformer_stats_text_margin"
+            android:text="@string/text_transformer_stats_courage"
+            android:layout_marginTop="@dimen/transformer_stats_text_margin_top"
             app:layout_constraintStart_toStartOf="@+id/tvName"
             app:layout_constraintTop_toBottomOf="@+id/tvRank"/>
 
@@ -157,8 +157,8 @@
             android:id="@+id/tvFirePower"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_item_transformer_stats_firepower"
-            android:layout_marginTop="@dimen/item_transformer_stats_text_margin"
+            android:text="@string/text_transformer_stats_firepower"
+            android:layout_marginTop="@dimen/transformer_stats_text_margin_top"
             app:layout_constraintStart_toStartOf="@+id/tvName"
             app:layout_constraintTop_toBottomOf="@+id/tvCourage"/>
 
@@ -177,8 +177,8 @@
             android:id="@+id/tvSkill"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_item_transformer_stats_skill"
-            android:layout_marginTop="@dimen/item_transformer_stats_text_margin"
+            android:text="@string/text_transformer_stats_skill"
+            android:layout_marginTop="@dimen/transformer_stats_text_margin_top"
             app:layout_constraintStart_toStartOf="@+id/tvName"
             app:layout_constraintTop_toBottomOf="@+id/tvFirePower"/>
 
