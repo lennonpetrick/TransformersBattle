@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">TransformerBattle</string>
+    <string name="app_name">Transformers Battle</string>
+
+    <!-- ARENA ACTIVITY -->
+    <string name="menu_action_battle">Battle</string>
+
+    <!-- ITEM TRANSFORMERS -->
+    <string name="text_item_transformer_stats_strength">Strength</string>
+    <string name="text_item_transformer_stats_intelligence">Intelligence</string>
+    <string name="text_item_transformer_stats_speed">Speed</string>
+    <string name="text_item_transformer_stats_endurance">Endurance</string>
+    <string name="text_item_transformer_stats_rank">Rank</string>
+    <string name="text_item_transformer_stats_courage">Courage</string>
+    <string name="text_item_transformer_stats_firepower">Firepower</string>
+    <string name="text_item_transformer_stats_skill">Skill</string>
 </resources>

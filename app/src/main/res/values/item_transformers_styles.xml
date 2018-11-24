@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- TEXT VIEW -->
+    <style name="TextView" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/text_grey</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="TextView.Name" parent="TextView">
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+
+    <style name="TextView.Stats" parent="TextView">
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+    </style>
+
+    <!-- PROGRESS BAR -->
+    <style name="ProgressBarStats" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progressbar_stats_drawable</item>
+    </style>
+
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ARENA ACTIVITY -->
+    <dimen name="arena_recycler_view_margin">10dp</dimen>
+    <dimen name="arena_new_fab_margin">16dp</dimen>
+
+    <!-- ITEM TRANSFORMERS -->
+    <dimen name="item_transformer_padding">8dp</dimen>
+    <dimen name="item_transformer_image_size">120dp</dimen>
+    <dimen name="item_transformer_name_text_margin">8dp</dimen>
+    <dimen name="item_transformer_stats_text_margin">8dp</dimen>
+    <dimen name="item_transformer_stats_progressbar_height">5dp</dimen>
+</resources>
