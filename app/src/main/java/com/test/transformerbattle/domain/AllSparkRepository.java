@@ -5,7 +5,7 @@ import io.reactivex.Single;
 public interface AllSparkRepository {
 
     /**
-     * Gets an authorization from the AllSpark resources.
+     * Gets an authorization from the AllSpark data sources.
      *
      * @return A single of a string containing the authorization.
      * */
