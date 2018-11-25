@@ -13,6 +13,13 @@
     <!-- TRANSFORMER ACTIVITY -->
     <dimen name="fields_container_padding">10dp</dimen>
 
+    <!-- BATTLE DIALOG -->
+    <dimen name="battle_btn_close_size">16sp</dimen>
+    <dimen name="battle_btn_close_margin">8dp</dimen>
+    <dimen name="battle_image_size">150dp</dimen>
+    <dimen name="battle_image_margin_top">40dp</dimen>
+    <dimen name="battle_description_margin_top">20dp</dimen>
+
     <!-- SHARED -->
     <dimen name="transformer_stats_text_margin_top">8dp</dimen>
 

@@ -19,6 +19,9 @@
     <string name="hint_transformer_firepower">Firepower</string>
     <string name="hint_transformer_skill">Skill</string>
 
+    <!-- BATTLE DIALOG -->
+    <string name="btn_battle_close">Close</string>
+
     <!-- SHARED -->
     <string name="text_transformer_stats_strength">Strength</string>
     <string name="text_transformer_stats_intelligence">Intelligence</string>
