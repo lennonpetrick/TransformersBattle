@@ -17,7 +17,17 @@ public class LocalAllSparkDataSource {
     }
 
     /**
-     * Gets the previous saved authorization from local database.
+     * Checks whether has the authorization stored into local.
+     *
+     * @return Returns true if the authorization exists in the local,
+     *         otherwise false.
+     * */
+    public boolean hasAuthorization() {
+        return mSharedPreferences.contains(AUTHORIZATION_KEY);
+    }
+
+    /**
+     * Gets the previous saved authorization from local.
      *
      * @return A single of a string containing the authorization.
      * */
@@ -27,7 +37,7 @@ public class LocalAllSparkDataSource {
     }
 
     /**
-     * Stores the authorization into local database.
+     * Stores the authorization into local.
      *
      * @return A completable.
      * */

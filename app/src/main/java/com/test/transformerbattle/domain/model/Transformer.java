@@ -1,4 +1,4 @@
-package com.test.transformerbattle.model;
+package com.test.transformerbattle.domain.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
