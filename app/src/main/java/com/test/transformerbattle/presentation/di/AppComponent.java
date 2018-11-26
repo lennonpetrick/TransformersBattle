@@ -1,10 +1,10 @@
 package com.test.transformerbattle.presentation.di;
 
-import android.app.Activity;
+import com.test.transformerbattle.presentation.arena.ArenaActivity;
 
 import dagger.Component;
 
 @Component(modules = AppModule.class)
 public interface AppComponent {
-    void inject(Activity activity);
+    void inject(ArenaActivity activity);
 }

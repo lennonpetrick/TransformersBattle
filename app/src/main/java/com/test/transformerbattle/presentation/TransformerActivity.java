@@ -14,6 +14,7 @@ import android.widget.SeekBar;
 import com.test.transformerbattle.R;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class TransformerActivity extends AppCompatActivity {
 
@@ -34,6 +35,7 @@ public class TransformerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transformer);
+        ButterKnife.bind(this);
         createToolbar();
     }
 

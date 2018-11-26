@@ -31,7 +31,7 @@ public class TransformerUseCaseImpl extends TransformerUseCase {
     }
 
     @Override
-    void save(@NonNull Transformer model,
+    public void save(@NonNull Transformer model,
               @NonNull DisposableCompletableObserver observer) {
         final Completable completable = mAllSparkRepository.getAuthorization()
                 .subscribeOn(getWorkScheduler())
@@ -44,7 +44,7 @@ public class TransformerUseCaseImpl extends TransformerUseCase {
     }
 
     @Override
-    void update(@NonNull Transformer model,
+    public void update(@NonNull Transformer model,
                 @NonNull DisposableCompletableObserver observer) {
         final Completable completable = mAllSparkRepository.getAuthorization()
                 .subscribeOn(getWorkScheduler())
@@ -57,7 +57,7 @@ public class TransformerUseCaseImpl extends TransformerUseCase {
     }
 
     @Override
-    void delete(@NonNull Transformer model,
+    public void delete(@NonNull Transformer model,
                 @NonNull DisposableCompletableObserver observer) {
         final Completable completable = mAllSparkRepository.getAuthorization()
                 .subscribeOn(getWorkScheduler())
@@ -70,7 +70,7 @@ public class TransformerUseCaseImpl extends TransformerUseCase {
     }
 
     @Override
-    void getAll(@NonNull DisposableObserver<List<Transformer>> observer) {
+    public void getAll(@NonNull DisposableObserver<List<Transformer>> observer) {
         final Observable<List<Transformer>> observable = mAllSparkRepository.getAuthorization()
                 .subscribeOn(getWorkScheduler())
                 .observeOn(getWorkScheduler())

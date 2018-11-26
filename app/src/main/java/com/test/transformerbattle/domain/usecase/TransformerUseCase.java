@@ -68,8 +68,8 @@ public abstract class TransformerUseCase {
      * @param model The new transformer to be created.
      * @param observer A {@link DisposableCompletableObserver} to return success or error.
      * */
-    abstract void save(@NonNull Transformer model,
-                       @NonNull DisposableCompletableObserver observer);
+    public abstract void save(@NonNull Transformer model,
+                              @NonNull DisposableCompletableObserver observer);
 
     /**
      * Updates a transformer into repository.
@@ -77,8 +77,8 @@ public abstract class TransformerUseCase {
      * @param model The transformer to be updated.
      * @param observer A {@link DisposableCompletableObserver} to return success or error.
      * */
-    abstract void update(@NonNull Transformer model,
-                         @NonNull DisposableCompletableObserver observer);
+    public abstract void update(@NonNull Transformer model,
+                                @NonNull DisposableCompletableObserver observer);
 
     /**
      * Deletes a transformer from repository.
@@ -86,13 +86,13 @@ public abstract class TransformerUseCase {
      * @param model The transformer to be deleted.
      * @param observer A {@link DisposableCompletableObserver} to return success or error.
      * */
-    abstract void delete(@NonNull Transformer model,
-                         @NonNull DisposableCompletableObserver observer);
+    public abstract void delete(@NonNull Transformer model,
+                                @NonNull DisposableCompletableObserver observer);
 
     /**
      * Gets a list of transformers.
      *
      * @param observer A {@link DisposableObserver} containing a list of Transformers.
      * */
-    abstract void getAll(@NonNull DisposableObserver<List<Transformer>> observer);
+    public abstract void getAll(@NonNull DisposableObserver<List<Transformer>> observer);
 }

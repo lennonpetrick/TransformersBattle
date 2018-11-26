@@ -22,5 +22,6 @@
 
     <!-- SHARED -->
     <dimen name="transformer_stats_text_margin_top">8dp</dimen>
+    <dimen name="recycler_transparent_divider_height">10dp</dimen>
 
 </resources>

@@ -26,6 +26,7 @@ import javax.inject.Named;
 import dagger.Module;
 import dagger.Provides;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
 @Module
@@ -122,5 +123,10 @@ public class AppModule {
     @Provides
     RemoteClient remoteClient() {
         return RemoteClient.getInstance();
+    }
+
+    @Provides
+    CompositeDisposable disposable() {
+        return new CompositeDisposable();
     }
 }

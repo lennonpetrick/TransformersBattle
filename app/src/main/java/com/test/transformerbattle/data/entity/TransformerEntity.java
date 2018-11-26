@@ -2,6 +2,7 @@ package com.test.transformerbattle.data.entity;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
 import com.google.gson.annotations.SerializedName;
 import com.test.transformerbattle.data.datasource.local.DBConstant;
@@ -10,6 +11,7 @@ import com.test.transformerbattle.data.datasource.local.DBConstant;
 public class TransformerEntity {
 
     @PrimaryKey
+    @NonNull
     private String id;
 
     @SerializedName("team_icon")
@@ -27,11 +29,12 @@ public class TransformerEntity {
                 firepower,
                 skill;
 
+    @NonNull
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(@NonNull String id) {
         this.id = id;
     }
 

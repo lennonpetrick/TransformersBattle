@@ -8,7 +8,7 @@ import android.content.Context;
 import com.test.transformerbattle.data.datasource.local.transformer.TransformerDao;
 import com.test.transformerbattle.data.entity.TransformerEntity;
 
-@Database(entities = {TransformerEntity.class}, version = 1)
+@Database(entities = {TransformerEntity.class}, version = 1, exportSchema = false)
 public abstract class LocalDatabase extends RoomDatabase {
 
     private static LocalDatabase INSTANCE;
