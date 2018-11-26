@@ -10,26 +10,21 @@
     <string name="menu_action_transformer_save">Save</string>
     <string name="menu_action_transformer_update">Update</string>
     <string name="hint_transformer_name">Name</string>
-    <string name="hint_transformer_strength">Strength</string>
-    <string name="hint_transformer_intelligence">Intelligence</string>
-    <string name="hint_transformer_speed">Speed</string>
-    <string name="hint_transformer_endurance">Endurance</string>
-    <string name="hint_transformer_rank">Rank</string>
-    <string name="hint_transformer_courage">Courage</string>
-    <string name="hint_transformer_firepower">Firepower</string>
-    <string name="hint_transformer_skill">Skill</string>
+    <string name="hint_transformer_team">Team</string>
+    <string name="text_transformer_team_autobots">Autobots</string>
+    <string name="text_transformer_team_decepticons">Decepticons</string>
 
     <!-- BATTLE DIALOG -->
     <string name="btn_battle_close">Close</string>
 
     <!-- SHARED -->
-    <string name="text_transformer_stats_strength">Strength</string>
-    <string name="text_transformer_stats_intelligence">Intelligence</string>
-    <string name="text_transformer_stats_speed">Speed</string>
-    <string name="text_transformer_stats_endurance">Endurance</string>
-    <string name="text_transformer_stats_rank">Rank</string>
-    <string name="text_transformer_stats_courage">Courage</string>
-    <string name="text_transformer_stats_firepower">Firepower</string>
-    <string name="text_transformer_stats_skill">Skill</string>
+    <string name="hint_transformer_stats_strength">Strength</string>
+    <string name="hint_transformer_stats_intelligence">Intelligence</string>
+    <string name="hint_transformer_stats_speed">Speed</string>
+    <string name="hint_transformer_stats_endurance">Endurance</string>
+    <string name="hint_transformer_stats_rank">Rank</string>
+    <string name="hint_transformer_stats_courage">Courage</string>
+    <string name="hint_transformer_stats_firepower">Firepower</string>
+    <string name="hint_transformer_stats_skill">Skill</string>
 
 </resources>

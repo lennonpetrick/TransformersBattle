@@ -18,12 +18,11 @@
             android:layout_height="@dimen/item_transformer_image_size"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvStrength"
-            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintTop_toTopOf="parent"
             tools:src="@mipmap/ic_launcher" />
 
         <TextView
-            style="@style/TextView.Medium"
+            style="@style/TextView.Title"
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -33,12 +32,12 @@
             tools:text="Optimus Prime" />
 
         <TextView
-            style="@style/TextView.Small"
+            style="@style/TextView.Hint"
             android:id="@+id/tvStrength"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_transformer_stats_strength"
-            android:layout_marginTop="@dimen/transformer_stats_text_margin_top"
+            android:layout_marginTop="@dimen/item_transformer_stats_text_margin_top"
+            android:text="@string/hint_transformer_stats_strength"
             app:layout_constraintStart_toStartOf="@+id/tvName"
             app:layout_constraintTop_toBottomOf="@+id/tvName"/>
 
@@ -53,13 +52,13 @@
             tools:progress="95"/>
 
         <TextView
-            style="@style/TextView.Small"
+            style="@style/TextView.Hint"
             android:id="@+id/tvIntelligence"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_transformer_stats_intelligence"
-            android:layout_marginTop="@dimen/transformer_stats_text_margin_top"
-            app:layout_constraintStart_toStartOf="@+id/tvName"
+            android:layout_marginTop="@dimen/item_transformer_stats_text_margin_top"
+            android:text="@string/hint_transformer_stats_intelligence"
+            app:layout_constraintStart_toStartOf="@+id/tvStrength"
             app:layout_constraintTop_toBottomOf="@+id/tvStrength"/>
 
         <ProgressBar
@@ -73,13 +72,13 @@
             tools:progress="85"/>
 
         <TextView
-            style="@style/TextView.Small"
+            style="@style/TextView.Hint"
             android:id="@+id/tvSpeed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_transformer_stats_speed"
-            android:layout_marginTop="@dimen/transformer_stats_text_margin_top"
-            app:layout_constraintStart_toStartOf="@+id/tvName"
+            android:layout_marginTop="@dimen/item_transformer_stats_text_margin_top"
+            android:text="@string/hint_transformer_stats_speed"
+            app:layout_constraintStart_toStartOf="@+id/tvStrength"
             app:layout_constraintTop_toBottomOf="@+id/tvIntelligence"/>
 
         <ProgressBar
@@ -93,13 +92,13 @@
             tools:progress="10"/>
 
         <TextView
-            style="@style/TextView.Small"
+            style="@style/TextView.Hint"
             android:id="@+id/tvEndurance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_transformer_stats_endurance"
-            android:layout_marginTop="@dimen/transformer_stats_text_margin_top"
-            app:layout_constraintStart_toStartOf="@+id/tvName"
+            android:layout_marginTop="@dimen/item_transformer_stats_text_margin_top"
+            android:text="@string/hint_transformer_stats_endurance"
+            app:layout_constraintStart_toStartOf="@+id/tvStrength"
             app:layout_constraintTop_toBottomOf="@+id/tvSpeed"/>
 
         <ProgressBar
@@ -113,13 +112,13 @@
             tools:progress="40"/>
 
         <TextView
-            style="@style/TextView.Small"
+            style="@style/TextView.Hint"
             android:id="@+id/tvRank"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_transformer_stats_rank"
-            android:layout_marginTop="@dimen/transformer_stats_text_margin_top"
-            app:layout_constraintStart_toStartOf="@+id/tvName"
+            android:layout_marginTop="@dimen/item_transformer_stats_text_margin_top"
+            android:text="@string/hint_transformer_stats_rank"
+            app:layout_constraintStart_toStartOf="@+id/tvStrength"
             app:layout_constraintTop_toBottomOf="@+id/tvEndurance"/>
 
         <ProgressBar
@@ -133,13 +132,13 @@
             tools:progress="20"/>
 
         <TextView
-            style="@style/TextView.Small"
+            style="@style/TextView.Hint"
             android:id="@+id/tvCourage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_transformer_stats_courage"
-            android:layout_marginTop="@dimen/transformer_stats_text_margin_top"
-            app:layout_constraintStart_toStartOf="@+id/tvName"
+            android:layout_marginTop="@dimen/item_transformer_stats_text_margin_top"
+            android:text="@string/hint_transformer_stats_courage"
+            app:layout_constraintStart_toStartOf="@+id/tvStrength"
             app:layout_constraintTop_toBottomOf="@+id/tvRank"/>
 
         <ProgressBar
@@ -153,13 +152,13 @@
             tools:progress="90"/>
 
         <TextView
-            style="@style/TextView.Small"
+            style="@style/TextView.Hint"
             android:id="@+id/tvFirePower"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_transformer_stats_firepower"
-            android:layout_marginTop="@dimen/transformer_stats_text_margin_top"
-            app:layout_constraintStart_toStartOf="@+id/tvName"
+            android:layout_marginTop="@dimen/item_transformer_stats_text_margin_top"
+            android:text="@string/hint_transformer_stats_firepower"
+            app:layout_constraintStart_toStartOf="@+id/tvStrength"
             app:layout_constraintTop_toBottomOf="@+id/tvCourage"/>
 
         <ProgressBar
@@ -173,13 +172,13 @@
             tools:progress="80"/>
 
         <TextView
-            style="@style/TextView.Small"
+            style="@style/TextView.Hint"
             android:id="@+id/tvSkill"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_transformer_stats_skill"
-            android:layout_marginTop="@dimen/transformer_stats_text_margin_top"
-            app:layout_constraintStart_toStartOf="@+id/tvName"
+            android:layout_marginTop="@dimen/item_transformer_stats_text_margin_top"
+            android:text="@string/hint_transformer_stats_skill"
+            app:layout_constraintStart_toStartOf="@+id/tvStrength"
             app:layout_constraintTop_toBottomOf="@+id/tvFirePower"/>
 
         <ProgressBar

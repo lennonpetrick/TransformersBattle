@@ -3,15 +3,21 @@
     <!-- ARENA ACTIVITY -->
     <dimen name="arena_recycler_view_margin">10dp</dimen>
     <dimen name="arena_new_fab_margin">16dp</dimen>
+    <dimen name="arena_recycler_divider_height">10dp</dimen>
 
     <!-- ITEM TRANSFORMERS LAYOUT -->
-    <dimen name="item_transformer_padding">8dp</dimen>
+    <dimen name="item_transformer_padding">15dp</dimen>
     <dimen name="item_transformer_image_size">120dp</dimen>
     <dimen name="item_transformer_name_text_margin_start">8dp</dimen>
+    <dimen name="item_transformer_stats_text_margin_top">8dp</dimen>
     <dimen name="item_transformer_stats_progressbar_height">5dp</dimen>
 
     <!-- TRANSFORMER ACTIVITY -->
     <dimen name="fields_container_padding">10dp</dimen>
+    <dimen name="transformer_team_text_margin_top">20dp</dimen>
+    <dimen name="transformer_stats_text_margin_top">8dp</dimen>
+    <dimen name="transformer_component_margin_top">10dp</dimen>
+    <dimen name="transformer_radio_button_margin_start">50dp</dimen>
 
     <!-- BATTLE DIALOG -->
     <dimen name="battle_btn_close_size">16sp</dimen>
@@ -19,9 +25,5 @@
     <dimen name="battle_image_size">150dp</dimen>
     <dimen name="battle_image_margin_top">40dp</dimen>
     <dimen name="battle_description_margin_top">20dp</dimen>
-
-    <!-- SHARED -->
-    <dimen name="transformer_stats_text_margin_top">8dp</dimen>
-    <dimen name="recycler_transparent_divider_height">10dp</dimen>
 
 </resources>

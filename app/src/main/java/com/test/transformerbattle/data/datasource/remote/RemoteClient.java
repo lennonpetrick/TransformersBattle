@@ -10,6 +10,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class RemoteClient {
 
@@ -37,6 +38,7 @@ public class RemoteClient {
         return new Retrofit.Builder()
                 .baseUrl(BaseUrls.TRANSFORMERS)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(createHttpClient())
                 .build();

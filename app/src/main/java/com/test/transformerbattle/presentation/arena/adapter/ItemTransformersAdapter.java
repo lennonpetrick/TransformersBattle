@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.test.transformerbattle.R;
 import com.test.transformerbattle.domain.model.Transformer;
+import com.test.transformerbattle.utils.StatsUtils;
 
 import java.util.List;
 
@@ -21,9 +22,14 @@ import butterknife.ButterKnife;
 public class ItemTransformersAdapter extends RecyclerView.Adapter<ItemTransformersAdapter.ViewHolder> {
 
     private List<Transformer> mTransformers;
+    private OnItemClickListener mOnItemClickListener;
 
     public ItemTransformersAdapter(@NonNull List<Transformer> transformers) {
         this.mTransformers = transformers;
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.mOnItemClickListener = onItemClickListener;
     }
 
     public void setTransformers(@NonNull List<Transformer> transformers) {
@@ -49,7 +55,7 @@ public class ItemTransformersAdapter extends RecyclerView.Adapter<ItemTransforme
         return mTransformers.size();
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.imgTeam) ImageView mImgTeam;
         @BindView(R.id.tvName) TextView mTvName;
@@ -65,6 +71,12 @@ public class ItemTransformersAdapter extends RecyclerView.Adapter<ItemTransforme
         ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+
+            itemView.setOnClickListener(view -> {
+                if (mOnItemClickListener != null) {
+                    mOnItemClickListener.onItemClick(mTransformers.get(getAdapterPosition()));
+                }
+            });
         }
 
         private void bind(Transformer transformer) {
@@ -83,9 +95,12 @@ public class ItemTransformersAdapter extends RecyclerView.Adapter<ItemTransforme
             mProgressSkill.setProgress(getProgressPercent(transformer.getSkill()));
         }
 
-        private int getProgressPercent(int progress) {
-            return progress * 10;
+        private int getProgressPercent(int value) {
+            return StatsUtils.valueToProgress(value);
         }
     }
 
+    public interface OnItemClickListener {
+        void onItemClick(Transformer transformer);
+    }
 }

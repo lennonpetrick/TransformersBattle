@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="transformer_save_progress">Saving transformer…</string>
+    <string name="transformer_update_progress">Updating transformer…</string>
+</resources>

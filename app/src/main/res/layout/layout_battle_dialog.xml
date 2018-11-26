@@ -17,7 +17,7 @@
         tools:src="@mipmap/ic_launcher" />
 
     <TextView
-        style="@style/TextView.Large"
+        style="@style/TextView.LargeMessage"
         android:id="@+id/tvDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

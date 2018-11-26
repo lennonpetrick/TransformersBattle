@@ -20,7 +20,7 @@ public class Transformer implements Parcelable {
                 skill,
                 overallRating;
 
-    Transformer() { }
+    public Transformer() { }
 
     private Transformer(Parcel in) {
         id = in.readString();

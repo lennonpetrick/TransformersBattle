@@ -18,7 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".presentation.TransformerActivity"/>
+        <activity android:name=".presentation.transformer.TransformerActivity"/>
     </application>
 
 </manifest>

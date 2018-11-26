@@ -17,8 +17,6 @@ import com.test.transformerbattle.domain.TransformerRepository;
 import com.test.transformerbattle.domain.scheduler.DefaultScheduler;
 import com.test.transformerbattle.domain.usecase.TransformerUseCase;
 import com.test.transformerbattle.domain.usecase.TransformerUseCaseImpl;
-import com.test.transformerbattle.presentation.arena.ArenaContract;
-import com.test.transformerbattle.presentation.arena.ArenaPresenter;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -36,18 +34,6 @@ public class AppModule {
 
     public AppModule(Context context) {
         this.mContext = context;
-    }
-
-    @Provides
-    ArenaContract.View arenaView() {
-        return (ArenaContract.View) mContext;
-    }
-
-    @Provides
-    @Inject
-    ArenaContract.Presenter arenaPresenter(ArenaContract.View view,
-                                           TransformerUseCase useCase) {
-        return new ArenaPresenter(view, useCase);
     }
 
     @Provides

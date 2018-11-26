@@ -11,15 +11,16 @@
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
 
-    <style name="TextView.Large" parent="TextView">
-        <item name="android:textSize">40sp</item>
-    </style>
-
-    <style name="TextView.Medium" parent="TextView">
-        <item name="android:textSize">18sp</item>
-    </style>
-
-    <style name="TextView.Small" parent="TextView">
+    <style name="TextView.Hint" parent="TextView">
         <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextView.Title" parent="TextView">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextView.LargeMessage" parent="TextView">
+        <item name="android:textSize">40sp</item>
     </style>
 </resources>

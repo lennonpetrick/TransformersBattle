@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="transformer_name_missing">Name shouldn\'t be empty</string>
+    <string name="transformer_team_missing">Team should be selected</string>
+</resources>

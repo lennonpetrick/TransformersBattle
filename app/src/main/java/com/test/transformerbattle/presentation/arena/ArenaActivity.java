@@ -17,10 +17,11 @@ import android.view.MenuItem;
 import com.jakewharton.rxbinding2.view.RxView;
 import com.test.transformerbattle.R;
 import com.test.transformerbattle.domain.model.Transformer;
-import com.test.transformerbattle.presentation.TransformerActivity;
 import com.test.transformerbattle.presentation.arena.adapter.ItemTransformersAdapter;
+import com.test.transformerbattle.presentation.arena.di.ArenaModule;
+import com.test.transformerbattle.presentation.arena.di.DaggerArenaComponent;
 import com.test.transformerbattle.presentation.di.AppModule;
-import com.test.transformerbattle.presentation.di.DaggerAppComponent;
+import com.test.transformerbattle.presentation.transformer.TransformerActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,11 +54,6 @@ public class ArenaActivity extends AppCompatActivity implements ArenaContract.Vi
         injectDependencies();
         setUpRecycleView();
         setListeners();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
         mPresenter.load();
     }
 
@@ -118,8 +114,9 @@ public class ArenaActivity extends AppCompatActivity implements ArenaContract.Vi
     }
 
     private void injectDependencies() {
-        DaggerAppComponent
+        DaggerArenaComponent
                 .builder()
+                .arenaModule(new ArenaModule(this))
                 .appModule(new AppModule(this))
                 .build()
                 .inject(this);
@@ -139,18 +136,25 @@ public class ArenaActivity extends AppCompatActivity implements ArenaContract.Vi
         mRecyclerView.addItemDecoration(divider);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setHasFixedSize(false);
-        mRecyclerView.setAdapter(new ItemTransformersAdapter(new ArrayList<>()));
+
+        final ItemTransformersAdapter adapter = new ItemTransformersAdapter(new ArrayList<>());
+        adapter.setOnItemClickListener(this::startTransformActivity);
+        mRecyclerView.setAdapter(adapter);
     }
 
     private void setListeners() {
         mListenersDisposables.add(RxView.clicks(mFabNewTransformer)
                 .throttleFirst(1, TimeUnit.SECONDS)
-                .subscribe(o -> startTransformActivity()));
+                .subscribe(o -> startTransformActivity(null)));
     }
 
-    private void startTransformActivity() {
-        startActivityForResult(
-                new Intent(this, TransformerActivity.class),
-                TRANSFORMER_REQUEST_CODE);
+    private void startTransformActivity(Transformer transformer) {
+        final Intent intent = new Intent(this, TransformerActivity.class);
+
+        if (transformer != null) {
+            intent.putExtra(Transformer.class.getName(), transformer);
+        }
+
+        startActivityForResult(intent, TRANSFORMER_REQUEST_CODE);
     }
 }
