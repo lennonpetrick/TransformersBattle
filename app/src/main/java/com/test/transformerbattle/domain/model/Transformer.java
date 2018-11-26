@@ -20,6 +20,24 @@ public class Transformer implements Parcelable {
                 skill,
                 overallRating;
 
+    Transformer() { }
+
+    private Transformer(Parcel in) {
+        id = in.readString();
+        name = in.readString();
+        team = in.readString();
+        teamIconUrl = in.readString();
+        strength = in.readInt();
+        intelligence = in.readInt();
+        speed = in.readInt();
+        endurance = in.readInt();
+        rank = in.readInt();
+        courage = in.readInt();
+        firepower = in.readInt();
+        skill = in.readInt();
+        overallRating = in.readInt();
+    }
+
     public String getId() {
         return id;
     }
@@ -157,20 +175,4 @@ public class Transformer implements Parcelable {
             return new Transformer[size];
         }
     };
-
-    private Transformer(Parcel in) {
-        id = in.readString();
-        name = in.readString();
-        team = in.readString();
-        teamIconUrl = in.readString();
-        strength = in.readInt();
-        intelligence = in.readInt();
-        speed = in.readInt();
-        endurance = in.readInt();
-        rank = in.readInt();
-        courage = in.readInt();
-        firepower = in.readInt();
-        skill = in.readInt();
-        overallRating = in.readInt();
-    }
 }
