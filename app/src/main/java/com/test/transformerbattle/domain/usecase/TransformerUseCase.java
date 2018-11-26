@@ -7,11 +7,11 @@ import com.test.transformerbattle.domain.scheduler.DefaultScheduler;
 
 import java.util.List;
 
-import io.reactivex.Completable;
-import io.reactivex.Observable;
 import io.reactivex.Scheduler;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.observers.DisposableCompletableObserver;
+import io.reactivex.observers.DisposableObserver;
 
 public abstract class TransformerUseCase {
 
@@ -19,8 +19,8 @@ public abstract class TransformerUseCase {
     private final DefaultScheduler mWorkScheduler,
             mPostScheduler;
 
-    public TransformerUseCase(DefaultScheduler mWorkScheduler,
-                              DefaultScheduler mPostScheduler) {
+    public TransformerUseCase(@NonNull DefaultScheduler mWorkScheduler,
+                              @NonNull DefaultScheduler mPostScheduler) {
         this.mWorkScheduler = mWorkScheduler;
         this.mPostScheduler = mPostScheduler;
         this.mDisposables = new CompositeDisposable();
@@ -66,30 +66,33 @@ public abstract class TransformerUseCase {
      * Creates a new transformer into repository.
      *
      * @param model The new transformer to be created.
-     * @return A completable indicating whether the request was success.
+     * @param observer A {@link DisposableCompletableObserver} to return success or error.
      * */
-    abstract Completable save(@NonNull Transformer model);
+    abstract void save(@NonNull Transformer model,
+                       @NonNull DisposableCompletableObserver observer);
 
     /**
      * Updates a transformer into repository.
      *
      * @param model The transformer to be updated.
-     * @return A completable indicating whether the request was success.
+     * @param observer A {@link DisposableCompletableObserver} to return success or error.
      * */
-    abstract Completable update(@NonNull Transformer model);
+    abstract void update(@NonNull Transformer model,
+                         @NonNull DisposableCompletableObserver observer);
 
     /**
      * Deletes a transformer from repository.
      *
      * @param model The transformer to be deleted.
-     * @return A completable indicating whether the request was success.
+     * @param observer A {@link DisposableCompletableObserver} to return success or error.
      * */
-    abstract Completable delete(@NonNull Transformer model);
+    abstract void delete(@NonNull Transformer model,
+                         @NonNull DisposableCompletableObserver observer);
 
     /**
      * Gets a list of transformers.
      *
-     * @return An observable emitting a transformers list.
+     * @param observer A {@link DisposableObserver} containing a list of Transformers.
      * */
-    abstract Observable<List<Transformer>> getAll();
+    abstract void getAll(@NonNull DisposableObserver<List<Transformer>> observer);
 }

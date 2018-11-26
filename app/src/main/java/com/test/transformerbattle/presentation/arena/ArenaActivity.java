@@ -1,4 +1,4 @@
-package com.test.transformerbattle;
+package com.test.transformerbattle.presentation.arena;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -8,12 +8,19 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.test.transformerbattle.R;
+
+import javax.inject.Inject;
+
 import butterknife.BindView;
 
-public class ArenaActivity extends AppCompatActivity {
+public class ArenaActivity extends AppCompatActivity implements ArenaContract.View {
 
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
     @BindView(R.id.fabNewTransformer) RecyclerView mFabNewTransformer;
+
+    @Inject
+    ArenaContract.Presenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +45,12 @@ public class ArenaActivity extends AppCompatActivity {
                 return false;
             }
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        mPresenter.destroy();
+        super.onDestroy();
     }
 
     private void createToolbar() {

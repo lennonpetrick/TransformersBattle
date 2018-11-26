@@ -13,48 +13,72 @@ import java.util.List;
 
 import io.reactivex.Completable;
 import io.reactivex.Observable;
+import io.reactivex.observers.DisposableCompletableObserver;
+import io.reactivex.observers.DisposableObserver;
 
 public class TransformerUseCaseImpl extends TransformerUseCase {
 
     private AllSparkRepository mAllSparkRepository;
     private TransformerRepository mTransformerRepository;
 
-    public TransformerUseCaseImpl(DefaultScheduler workScheduler,
-                                  DefaultScheduler postScheduler,
-                                  AllSparkRepository allSparkRepository,
-                                  TransformerRepository transformerRepository) {
+    public TransformerUseCaseImpl(@NonNull DefaultScheduler workScheduler,
+                                  @NonNull DefaultScheduler postScheduler,
+                                  @NonNull AllSparkRepository allSparkRepository,
+                                  @NonNull TransformerRepository transformerRepository) {
         super(workScheduler, postScheduler);
         this.mAllSparkRepository = allSparkRepository;
         this.mTransformerRepository = transformerRepository;
     }
 
     @Override
-    public Completable save(@NonNull Transformer model) {
-        return mAllSparkRepository.getAuthorization()
+    void save(@NonNull Transformer model,
+              @NonNull DisposableCompletableObserver observer) {
+        final Completable completable = mAllSparkRepository.getAuthorization()
+                .subscribeOn(getWorkScheduler())
+                .observeOn(getWorkScheduler())
                 .flatMapCompletable(token ->
-                        mTransformerRepository.save(token, toEntity(model)));
+                        mTransformerRepository.save(token, toEntity(model)))
+                .observeOn(getPostScheduler());
+
+        addDisposable(completable.subscribeWith(observer));
     }
 
     @Override
-    public Completable update(@NonNull Transformer model) {
-        return mAllSparkRepository.getAuthorization()
+    void update(@NonNull Transformer model,
+                @NonNull DisposableCompletableObserver observer) {
+        final Completable completable = mAllSparkRepository.getAuthorization()
+                .subscribeOn(getWorkScheduler())
+                .observeOn(getWorkScheduler())
                 .flatMapCompletable(token ->
-                        mTransformerRepository.update(token, toEntity(model)));
+                        mTransformerRepository.update(token, toEntity(model)))
+                .observeOn(getPostScheduler());
+
+        addDisposable(completable.subscribeWith(observer));
     }
 
     @Override
-    public Completable delete(@NonNull Transformer model) {
-        return mAllSparkRepository.getAuthorization()
+    void delete(@NonNull Transformer model,
+                @NonNull DisposableCompletableObserver observer) {
+        final Completable completable = mAllSparkRepository.getAuthorization()
+                .subscribeOn(getWorkScheduler())
+                .observeOn(getWorkScheduler())
                 .flatMapCompletable(token ->
-                        mTransformerRepository.delete(token, toEntity(model)));
+                        mTransformerRepository.delete(token, toEntity(model)))
+                .observeOn(getPostScheduler());
+
+        addDisposable(completable.subscribeWith(observer));
     }
 
     @Override
-    public Observable<List<Transformer>> getAll() {
-        return mAllSparkRepository.getAuthorization()
-                .flatMapObservable(token ->
-                        mTransformerRepository.getAll(token)
-                                .map(this::toModels));
+    void getAll(@NonNull DisposableObserver<List<Transformer>> observer) {
+        final Observable<List<Transformer>> observable = mAllSparkRepository.getAuthorization()
+                .subscribeOn(getWorkScheduler())
+                .observeOn(getWorkScheduler())
+                .flatMapObservable(token -> mTransformerRepository.getAll(token)
+                        .map(this::toModels))
+                .observeOn(getPostScheduler());
+
+        addDisposable(observable.subscribeWith(observer));
     }
 
     private TransformerEntity toEntity(Transformer model) {

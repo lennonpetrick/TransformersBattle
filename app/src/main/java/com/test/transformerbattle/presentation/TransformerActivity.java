@@ -1,4 +1,4 @@
-package com.test.transformerbattle;
+package com.test.transformerbattle.presentation;
 
 import android.os.Bundle;
 import android.support.annotation.StringRes;
@@ -10,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.SeekBar;
+
+import com.test.transformerbattle.R;
 
 import butterknife.BindView;
 

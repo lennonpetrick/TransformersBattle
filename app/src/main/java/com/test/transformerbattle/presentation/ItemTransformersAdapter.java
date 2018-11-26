@@ -1,4 +1,4 @@
-package com.test.transformerbattle;
+package com.test.transformerbattle.presentation;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.test.transformerbattle.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

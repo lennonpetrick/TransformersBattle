@@ -1,4 +1,4 @@
-package com.test.transformerbattle;
+package com.test.transformerbattle.presentation;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -10,6 +10,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.test.transformerbattle.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
