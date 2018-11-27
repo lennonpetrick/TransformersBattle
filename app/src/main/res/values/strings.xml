@@ -20,6 +20,8 @@
     <string name="text_battle_tie">Tie :)</string>
     <string name="text_battle_winning_team">Winning team (%1$s): %2$s</string>
     <string name="text_battle_survivors">Survivors from the losing team (%1$s): %2$s</string>
+    <string name="text_battle_team_autobots">Autobots</string>
+    <string name="text_battle_team_decepticons">Decepticons</string>
 
     <plurals name="text_battle_number">
         <item quantity="one">%d battle</item>

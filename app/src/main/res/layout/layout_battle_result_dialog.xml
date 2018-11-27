@@ -17,7 +17,7 @@
         tools:src="@mipmap/ic_launcher" />
 
     <TextView
-        style="@style/TextView.LargeMessage"
+        style="@style/TextView.Description"
         android:id="@+id/tvDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imgTeam"
         app:layout_constraintStart_toStartOf="@+id/imgTeam"
         app:layout_constraintEnd_toEndOf="@+id/imgTeam"
-        tools:text="Decepticons\nWin"/>
+        tools:text="1 Battle\n\nWinning team (Autobots): Optimus Prime\n\nSurvivors from the losing team (Decepticon): Soundwave"/>
 
     <Button
         android:id="@+id/btnClose"

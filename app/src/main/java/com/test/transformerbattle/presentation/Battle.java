@@ -18,10 +18,10 @@ public class Battle {
                              SKILL_LIMIT = 3;
 
     private List<Transformer> mAutobotTeam,
-                              mAutobotsWinner,
+                              mWinningAutobots,
                               mTransformersDestroyed,
                               mDecepticonTeam,
-                              mDecepticonWinner;
+                              mWinningDecepticon;
 
     public static Single<Result> create(List<Transformer> transformers) {
         return Single.create(emitter -> {
@@ -34,9 +34,9 @@ public class Battle {
 
     private Battle(List<Transformer> transformers) {
         mAutobotTeam = new ArrayList<>();
-        mAutobotsWinner = new ArrayList<>();
+        mWinningAutobots = new ArrayList<>();
         mDecepticonTeam = new ArrayList<>();
-        mDecepticonWinner = new ArrayList<>();
+        mWinningDecepticon = new ArrayList<>();
         mTransformersDestroyed = new ArrayList<>();
 
         for (Transformer transformer : transformers) {
@@ -126,12 +126,12 @@ public class Battle {
     }
 
     private void autobotWins(Transformer winner, Transformer loser) {
-        mAutobotsWinner.add(winner);
+        mWinningAutobots.add(winner);
         mTransformersDestroyed.add(loser);
     }
 
     private void decepticonWins(Transformer winner, Transformer loser) {
-        mDecepticonWinner.add(winner);
+        mWinningDecepticon.add(winner);
         mTransformersDestroyed.add(loser);
     }
 
@@ -155,8 +155,8 @@ public class Battle {
     }
 
     private Result getResult(int battleCount, List<Transformer> skippedFighters) {
-        final int autobotSize = mAutobotsWinner.size();
-        final int decepticonSize = mDecepticonWinner.size();
+        final int autobotSize = mWinningAutobots.size();
+        final int decepticonSize = mWinningDecepticon.size();
 
         final Result result = new Result();
         result.setNumberOfBattles(battleCount);
@@ -165,24 +165,24 @@ public class Battle {
 
             if (skippedFighters != null && !skippedFighters.isEmpty()) {
                 if (skippedFighters.get(0).getTeam().equals("A")) {
-                    mAutobotsWinner.addAll(skippedFighters);
+                    mWinningAutobots.addAll(skippedFighters);
                 } else {
                     result.setSurvivors(skippedFighters);
                 }
             }
 
-            result.setWinnerTeam(mAutobotsWinner);
+            result.setWinningTeam(mWinningAutobots);
         } else if (autobotSize < decepticonSize) {
 
             if (skippedFighters != null && !skippedFighters.isEmpty()) {
                 if (skippedFighters.get(0).getTeam().equals("D")) {
-                    mDecepticonWinner.addAll(skippedFighters);
+                    mWinningDecepticon.addAll(skippedFighters);
                 } else {
                     result.setSurvivors(skippedFighters);
                 }
             }
 
-            result.setWinnerTeam(mDecepticonWinner);
+            result.setWinningTeam(mWinningDecepticon);
         } else {
             result.setTie(true);
         }
@@ -192,17 +192,17 @@ public class Battle {
 
     public class Result {
 
-        private List<Transformer> mWinnerTeam,
+        private List<Transformer> mWinningTeam,
                                   mSurvivors;
         private int mNumberOfBattles;
         private boolean mTie;
 
-        public List<Transformer> getWinnerTeam() {
-            return mWinnerTeam;
+        public List<Transformer> getWinningTeam() {
+            return mWinningTeam;
         }
 
-        public void setWinnerTeam(List<Transformer> winnerTeam) {
-            this.mWinnerTeam = winnerTeam;
+        public void setWinningTeam(List<Transformer> winningTeam) {
+            this.mWinningTeam = winningTeam;
         }
 
         public List<Transformer> getSurvivors() {
