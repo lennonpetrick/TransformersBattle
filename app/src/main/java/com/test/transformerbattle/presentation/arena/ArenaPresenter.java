@@ -7,6 +7,7 @@ import com.test.transformerbattle.domain.usecase.TransformerUseCase;
 
 import java.util.List;
 
+import io.reactivex.observers.DisposableCompletableObserver;
 import io.reactivex.observers.DisposableObserver;
 
 public class ArenaPresenter implements ArenaContract.Presenter {
@@ -42,6 +43,19 @@ public class ArenaPresenter implements ArenaContract.Presenter {
 
             @Override
             public void onComplete() {}
+        });
+    }
+
+    @Override
+    public void delete(Transformer transformer) {
+        mUseCase.delete(transformer, new DisposableCompletableObserver() {
+            @Override
+            public void onComplete() {}
+
+            @Override
+            public void onError(Throwable e) {
+                mView.showError(e.getMessage());
+            }
         });
     }
 

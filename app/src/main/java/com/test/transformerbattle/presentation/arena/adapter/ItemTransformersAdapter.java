@@ -37,6 +37,12 @@ public class ItemTransformersAdapter extends RecyclerView.Adapter<ItemTransforme
         notifyDataSetChanged();
     }
 
+    public Transformer removeTransformer(int position) {
+        final Transformer transformer = mTransformers.remove(position);
+        notifyItemRemoved(position);
+        return transformer;
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -55,7 +61,7 @@ public class ItemTransformersAdapter extends RecyclerView.Adapter<ItemTransforme
         return mTransformers.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends SwipeItemHelper.ViewHolder {
 
         @BindView(R.id.imgTeam) ImageView mImgTeam;
         @BindView(R.id.tvName) TextView mTvName;
@@ -77,6 +83,16 @@ public class ItemTransformersAdapter extends RecyclerView.Adapter<ItemTransforme
                     mOnItemClickListener.onItemClick(mTransformers.get(getAdapterPosition()));
                 }
             });
+        }
+
+        @Override
+        protected int getBackgroundViewId() {
+            return R.id.container_background;
+        }
+
+        @Override
+        protected int getForegroundViewId() {
+            return R.id.container_foreground;
         }
 
         private void bind(Transformer transformer) {

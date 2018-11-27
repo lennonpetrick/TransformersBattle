@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -18,6 +19,7 @@ import com.jakewharton.rxbinding2.view.RxView;
 import com.test.transformerbattle.R;
 import com.test.transformerbattle.domain.model.Transformer;
 import com.test.transformerbattle.presentation.arena.adapter.ItemTransformersAdapter;
+import com.test.transformerbattle.presentation.arena.adapter.SwipeItemHelper;
 import com.test.transformerbattle.presentation.arena.di.ArenaModule;
 import com.test.transformerbattle.presentation.arena.di.DaggerArenaComponent;
 import com.test.transformerbattle.presentation.di.AppModule;
@@ -52,7 +54,8 @@ public class ArenaActivity extends AppCompatActivity implements ArenaContract.Vi
         ButterKnife.bind(this);
         createToolbar();
         injectDependencies();
-        setUpRecycleView();
+        setUpRecyclerView();
+        setUpRecyclerOnSwipe();
         setListeners();
         mPresenter.load();
     }
@@ -122,7 +125,7 @@ public class ArenaActivity extends AppCompatActivity implements ArenaContract.Vi
                 .inject(this);
     }
 
-    private void setUpRecycleView() {
+    private void setUpRecyclerView() {
         final DividerItemDecoration divider = new DividerItemDecoration(this,
                 DividerItemDecoration.VERTICAL);
 
@@ -140,6 +143,20 @@ public class ArenaActivity extends AppCompatActivity implements ArenaContract.Vi
         final ItemTransformersAdapter adapter = new ItemTransformersAdapter(new ArrayList<>());
         adapter.setOnItemClickListener(this::startTransformActivity);
         mRecyclerView.setAdapter(adapter);
+    }
+
+    private void setUpRecyclerOnSwipe() {
+        final SwipeItemHelper.OnSwipeListener onSwipeListener = itemPosition -> {
+            final ItemTransformersAdapter adapter = (ItemTransformersAdapter)
+                    mRecyclerView.getAdapter();
+
+            if (adapter != null) {
+                mPresenter.delete(adapter.removeTransformer(itemPosition));
+            }
+        };
+
+        new SwipeItemHelper(0, ItemTouchHelper.LEFT, 0.17f,
+                mRecyclerView, onSwipeListener);
     }
 
     private void setListeners() {

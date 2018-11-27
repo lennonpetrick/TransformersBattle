@@ -5,191 +5,219 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardBackgroundColor="@color/card_background">
+    app:cardBackgroundColor="@color/colorAccent">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/item_transformer_padding">
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/imgTeam"
-            android:layout_width="@dimen/item_transformer_image_size"
-            android:layout_height="@dimen/item_transformer_image_size"
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/container_background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="@dimen/item_transformer_padding"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@mipmap/ic_launcher" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            style="@style/TextView.Title"
-            android:id="@+id/tvName"
-            android:layout_width="wrap_content"
+            <ImageView
+                android:layout_width="@dimen/item_transformer_delete_button_size"
+                android:layout_height="@dimen/item_transformer_delete_button_size"
+                android:src="@drawable/ic_delete"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/container_foreground"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/item_transformer_name_text_margin_start"
-            app:layout_constraintStart_toEndOf="@+id/imgTeam"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Optimus Prime" />
+            android:padding="@dimen/item_transformer_padding"
+            android:background="@color/text_white">
 
-        <TextView
-            style="@style/TextView.Hint"
-            android:id="@+id/tvStrength"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/item_transformer_stats_text_margin_top"
-            android:text="@string/hint_transformer_stats_strength"
-            app:layout_constraintStart_toStartOf="@+id/tvName"
-            app:layout_constraintTop_toBottomOf="@+id/tvName"/>
+            <ImageView
+                android:id="@+id/imgTeam"
+                android:layout_width="@dimen/item_transformer_image_size"
+                android:layout_height="@dimen/item_transformer_image_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@mipmap/ic_launcher" />
 
-        <ProgressBar
-            style="@style/ProgressBarStats"
-            android:id="@+id/progressStrength"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/item_transformer_stats_progressbar_height"
-            app:layout_constraintTop_toBottomOf="@+id/tvStrength"
-            app:layout_constraintStart_toStartOf="@+id/tvStrength"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:progress="95"/>
+            <TextView
+                style="@style/TextView.Title"
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/item_transformer_name_text_margin_start"
+                app:layout_constraintStart_toEndOf="@+id/imgTeam"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Optimus Prime" />
 
-        <TextView
-            style="@style/TextView.Hint"
-            android:id="@+id/tvIntelligence"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/item_transformer_stats_text_margin_top"
-            android:text="@string/hint_transformer_stats_intelligence"
-            app:layout_constraintStart_toStartOf="@+id/tvStrength"
-            app:layout_constraintTop_toBottomOf="@+id/tvStrength"/>
+            <TextView
+                style="@style/TextView.Hint"
+                android:id="@+id/tvStrength"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_transformer_stats_text_margin_top"
+                android:text="@string/hint_transformer_stats_strength"
+                app:layout_constraintStart_toStartOf="@+id/tvName"
+                app:layout_constraintTop_toBottomOf="@+id/tvName"/>
 
-        <ProgressBar
-            style="@style/ProgressBarStats"
-            android:id="@+id/progressIntelligence"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/item_transformer_stats_progressbar_height"
-            app:layout_constraintTop_toBottomOf="@+id/tvIntelligence"
-            app:layout_constraintStart_toStartOf="@+id/tvIntelligence"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:progress="85"/>
+            <ProgressBar
+                style="@style/ProgressBarStats"
+                android:id="@+id/progressStrength"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/item_transformer_stats_progressbar_height"
+                app:layout_constraintTop_toBottomOf="@+id/tvStrength"
+                app:layout_constraintStart_toStartOf="@+id/tvStrength"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:progress="95"/>
 
-        <TextView
-            style="@style/TextView.Hint"
-            android:id="@+id/tvSpeed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/item_transformer_stats_text_margin_top"
-            android:text="@string/hint_transformer_stats_speed"
-            app:layout_constraintStart_toStartOf="@+id/tvStrength"
-            app:layout_constraintTop_toBottomOf="@+id/tvIntelligence"/>
+            <TextView
+                style="@style/TextView.Hint"
+                android:id="@+id/tvIntelligence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_transformer_stats_text_margin_top"
+                android:text="@string/hint_transformer_stats_intelligence"
+                app:layout_constraintStart_toStartOf="@+id/tvStrength"
+                app:layout_constraintTop_toBottomOf="@+id/tvStrength"/>
 
-        <ProgressBar
-            style="@style/ProgressBarStats"
-            android:id="@+id/progressSpeed"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/item_transformer_stats_progressbar_height"
-            app:layout_constraintTop_toBottomOf="@+id/tvSpeed"
-            app:layout_constraintStart_toStartOf="@+id/tvSpeed"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:progress="10"/>
+            <ProgressBar
+                style="@style/ProgressBarStats"
+                android:id="@+id/progressIntelligence"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/item_transformer_stats_progressbar_height"
+                app:layout_constraintTop_toBottomOf="@+id/tvIntelligence"
+                app:layout_constraintStart_toStartOf="@+id/tvIntelligence"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:progress="85"/>
 
-        <TextView
-            style="@style/TextView.Hint"
-            android:id="@+id/tvEndurance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/item_transformer_stats_text_margin_top"
-            android:text="@string/hint_transformer_stats_endurance"
-            app:layout_constraintStart_toStartOf="@+id/tvStrength"
-            app:layout_constraintTop_toBottomOf="@+id/tvSpeed"/>
+            <TextView
+                style="@style/TextView.Hint"
+                android:id="@+id/tvSpeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_transformer_stats_text_margin_top"
+                android:text="@string/hint_transformer_stats_speed"
+                app:layout_constraintStart_toStartOf="@+id/tvStrength"
+                app:layout_constraintTop_toBottomOf="@+id/tvIntelligence"/>
 
-        <ProgressBar
-            style="@style/ProgressBarStats"
-            android:id="@+id/progressEndurance"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/item_transformer_stats_progressbar_height"
-            app:layout_constraintTop_toBottomOf="@+id/tvEndurance"
-            app:layout_constraintStart_toStartOf="@+id/tvEndurance"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:progress="40"/>
+            <ProgressBar
+                style="@style/ProgressBarStats"
+                android:id="@+id/progressSpeed"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/item_transformer_stats_progressbar_height"
+                app:layout_constraintTop_toBottomOf="@+id/tvSpeed"
+                app:layout_constraintStart_toStartOf="@+id/tvSpeed"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:progress="10"/>
 
-        <TextView
-            style="@style/TextView.Hint"
-            android:id="@+id/tvRank"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/item_transformer_stats_text_margin_top"
-            android:text="@string/hint_transformer_stats_rank"
-            app:layout_constraintStart_toStartOf="@+id/tvStrength"
-            app:layout_constraintTop_toBottomOf="@+id/tvEndurance"/>
+            <TextView
+                style="@style/TextView.Hint"
+                android:id="@+id/tvEndurance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_transformer_stats_text_margin_top"
+                android:text="@string/hint_transformer_stats_endurance"
+                app:layout_constraintStart_toStartOf="@+id/tvStrength"
+                app:layout_constraintTop_toBottomOf="@+id/tvSpeed"/>
 
-        <ProgressBar
-            style="@style/ProgressBarStats"
-            android:id="@+id/progressRank"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/item_transformer_stats_progressbar_height"
-            app:layout_constraintTop_toBottomOf="@+id/tvRank"
-            app:layout_constraintStart_toStartOf="@+id/tvRank"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:progress="20"/>
+            <ProgressBar
+                style="@style/ProgressBarStats"
+                android:id="@+id/progressEndurance"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/item_transformer_stats_progressbar_height"
+                app:layout_constraintTop_toBottomOf="@+id/tvEndurance"
+                app:layout_constraintStart_toStartOf="@+id/tvEndurance"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:progress="40"/>
 
-        <TextView
-            style="@style/TextView.Hint"
-            android:id="@+id/tvCourage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/item_transformer_stats_text_margin_top"
-            android:text="@string/hint_transformer_stats_courage"
-            app:layout_constraintStart_toStartOf="@+id/tvStrength"
-            app:layout_constraintTop_toBottomOf="@+id/tvRank"/>
+            <TextView
+                style="@style/TextView.Hint"
+                android:id="@+id/tvRank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_transformer_stats_text_margin_top"
+                android:text="@string/hint_transformer_stats_rank"
+                app:layout_constraintStart_toStartOf="@+id/tvStrength"
+                app:layout_constraintTop_toBottomOf="@+id/tvEndurance"/>
 
-        <ProgressBar
-            style="@style/ProgressBarStats"
-            android:id="@+id/progressCourage"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/item_transformer_stats_progressbar_height"
-            app:layout_constraintTop_toBottomOf="@+id/tvCourage"
-            app:layout_constraintStart_toStartOf="@+id/tvCourage"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:progress="90"/>
+            <ProgressBar
+                style="@style/ProgressBarStats"
+                android:id="@+id/progressRank"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/item_transformer_stats_progressbar_height"
+                app:layout_constraintTop_toBottomOf="@+id/tvRank"
+                app:layout_constraintStart_toStartOf="@+id/tvRank"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:progress="20"/>
 
-        <TextView
-            style="@style/TextView.Hint"
-            android:id="@+id/tvFirePower"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/item_transformer_stats_text_margin_top"
-            android:text="@string/hint_transformer_stats_firepower"
-            app:layout_constraintStart_toStartOf="@+id/tvStrength"
-            app:layout_constraintTop_toBottomOf="@+id/tvCourage"/>
+            <TextView
+                style="@style/TextView.Hint"
+                android:id="@+id/tvCourage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_transformer_stats_text_margin_top"
+                android:text="@string/hint_transformer_stats_courage"
+                app:layout_constraintStart_toStartOf="@+id/tvStrength"
+                app:layout_constraintTop_toBottomOf="@+id/tvRank"/>
 
-        <ProgressBar
-            style="@style/ProgressBarStats"
-            android:id="@+id/progressFirePower"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/item_transformer_stats_progressbar_height"
-            app:layout_constraintTop_toBottomOf="@+id/tvFirePower"
-            app:layout_constraintStart_toStartOf="@+id/tvFirePower"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:progress="80"/>
+            <ProgressBar
+                style="@style/ProgressBarStats"
+                android:id="@+id/progressCourage"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/item_transformer_stats_progressbar_height"
+                app:layout_constraintTop_toBottomOf="@+id/tvCourage"
+                app:layout_constraintStart_toStartOf="@+id/tvCourage"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:progress="90"/>
 
-        <TextView
-            style="@style/TextView.Hint"
-            android:id="@+id/tvSkill"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/item_transformer_stats_text_margin_top"
-            android:text="@string/hint_transformer_stats_skill"
-            app:layout_constraintStart_toStartOf="@+id/tvStrength"
-            app:layout_constraintTop_toBottomOf="@+id/tvFirePower"/>
+            <TextView
+                style="@style/TextView.Hint"
+                android:id="@+id/tvFirePower"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_transformer_stats_text_margin_top"
+                android:text="@string/hint_transformer_stats_firepower"
+                app:layout_constraintStart_toStartOf="@+id/tvStrength"
+                app:layout_constraintTop_toBottomOf="@+id/tvCourage"/>
 
-        <ProgressBar
-            style="@style/ProgressBarStats"
-            android:id="@+id/progressSkill"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/item_transformer_stats_progressbar_height"
-            app:layout_constraintTop_toBottomOf="@+id/tvSkill"
-            app:layout_constraintStart_toStartOf="@+id/tvSkill"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:progress="60"/>
+            <ProgressBar
+                style="@style/ProgressBarStats"
+                android:id="@+id/progressFirePower"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/item_transformer_stats_progressbar_height"
+                app:layout_constraintTop_toBottomOf="@+id/tvFirePower"
+                app:layout_constraintStart_toStartOf="@+id/tvFirePower"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:progress="80"/>
+
+            <TextView
+                style="@style/TextView.Hint"
+                android:id="@+id/tvSkill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_transformer_stats_text_margin_top"
+                android:text="@string/hint_transformer_stats_skill"
+                app:layout_constraintStart_toStartOf="@+id/tvStrength"
+                app:layout_constraintTop_toBottomOf="@+id/tvFirePower"/>
+
+            <ProgressBar
+                style="@style/ProgressBarStats"
+                android:id="@+id/progressSkill"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/item_transformer_stats_progressbar_height"
+                app:layout_constraintTop_toBottomOf="@+id/tvSkill"
+                app:layout_constraintStart_toStartOf="@+id/tvSkill"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:progress="60"/>
+
+        </android.support.constraint.ConstraintLayout>
 
     </android.support.constraint.ConstraintLayout>
 

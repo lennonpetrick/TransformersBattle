@@ -14,6 +14,7 @@ public interface ArenaContract {
     interface Presenter {
         void destroy();
         void load();
+        void delete(Transformer transformer);
         void battle();
     }
 }
