@@ -17,8 +17,7 @@ public class Transformer implements Parcelable {
                 rank,
                 courage,
                 firepower,
-                skill,
-                overallRating;
+                skill;
 
     public Transformer() { }
 
@@ -35,7 +34,6 @@ public class Transformer implements Parcelable {
         courage = in.readInt();
         firepower = in.readInt();
         skill = in.readInt();
-        overallRating = in.readInt();
     }
 
     public String getId() {
@@ -135,11 +133,7 @@ public class Transformer implements Parcelable {
     }
 
     public int getOverallRating() {
-        return overallRating;
-    }
-
-    public void setOverallRating(int overallRating) {
-        this.overallRating = overallRating;
+        return strength + intelligence + speed + endurance + firepower;
     }
 
     @Override
@@ -156,7 +150,6 @@ public class Transformer implements Parcelable {
         dest.writeInt(courage);
         dest.writeInt(firepower);
         dest.writeInt(skill);
-        dest.writeInt(overallRating);
     }
 
     @Override

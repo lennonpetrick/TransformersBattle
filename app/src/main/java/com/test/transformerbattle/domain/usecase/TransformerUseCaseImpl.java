@@ -8,13 +8,16 @@ import com.test.transformerbattle.domain.TransformerRepository;
 import com.test.transformerbattle.domain.model.Transformer;
 import com.test.transformerbattle.domain.model.TransformerMapper;
 import com.test.transformerbattle.domain.scheduler.DefaultScheduler;
+import com.test.transformerbattle.presentation.Battle;
 
 import java.util.List;
 
 import io.reactivex.Completable;
 import io.reactivex.Observable;
+import io.reactivex.Single;
 import io.reactivex.observers.DisposableCompletableObserver;
 import io.reactivex.observers.DisposableObserver;
+import io.reactivex.observers.DisposableSingleObserver;
 
 public class TransformerUseCaseImpl extends TransformerUseCase {
 
@@ -79,6 +82,16 @@ public class TransformerUseCaseImpl extends TransformerUseCase {
                 .observeOn(getPostScheduler());
 
         addDisposable(observable.subscribeWith(observer));
+    }
+
+    @Override
+    public void battle(@NonNull List<Transformer> transformers,
+                       @NonNull DisposableSingleObserver<Battle.Result> observer) {
+        final Single<Battle.Result> single = Battle.create(transformers)
+                .subscribeOn(getWorkScheduler())
+                .observeOn(getPostScheduler());
+
+        addDisposable(single.subscribeWith(observer));
     }
 
     private TransformerEntity toEntity(Transformer model) {

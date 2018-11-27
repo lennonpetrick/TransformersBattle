@@ -43,6 +43,10 @@ public class ItemTransformersAdapter extends RecyclerView.Adapter<ItemTransforme
         return transformer;
     }
 
+    public List<Transformer> getTransformers() {
+        return mTransformers;
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {

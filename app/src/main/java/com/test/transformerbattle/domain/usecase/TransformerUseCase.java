@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 
 import com.test.transformerbattle.domain.model.Transformer;
 import com.test.transformerbattle.domain.scheduler.DefaultScheduler;
+import com.test.transformerbattle.presentation.Battle;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.observers.DisposableCompletableObserver;
 import io.reactivex.observers.DisposableObserver;
+import io.reactivex.observers.DisposableSingleObserver;
 
 public abstract class TransformerUseCase {
 
@@ -95,4 +97,13 @@ public abstract class TransformerUseCase {
      * @param observer A {@link DisposableObserver} containing a list of Transformers.
      * */
     public abstract void getAll(@NonNull DisposableObserver<List<Transformer>> observer);
+
+    /**
+     * Runs a battle between transformers.
+     *
+     * @param transformers A list of transformers to battle.
+     * @param observer A {@link DisposableSingleObserver} containing the result of the battle.
+     * */
+    public abstract void battle(@NonNull List<Transformer> transformers,
+                                @NonNull DisposableSingleObserver<Battle.Result> observer);
 }

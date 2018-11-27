@@ -1,5 +1,6 @@
 package com.test.transformerbattle.presentation.arena;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -18,6 +19,8 @@ import android.view.MenuItem;
 import com.jakewharton.rxbinding2.view.RxView;
 import com.test.transformerbattle.R;
 import com.test.transformerbattle.domain.model.Transformer;
+import com.test.transformerbattle.presentation.Battle;
+import com.test.transformerbattle.presentation.BattleResultDialog;
 import com.test.transformerbattle.presentation.arena.adapter.ItemTransformersAdapter;
 import com.test.transformerbattle.presentation.arena.adapter.SwipeItemHelper;
 import com.test.transformerbattle.presentation.arena.di.ArenaModule;
@@ -46,6 +49,8 @@ public class ArenaActivity extends AppCompatActivity implements ArenaContract.Vi
     ArenaContract.Presenter mPresenter;
     @Inject
     CompositeDisposable mListenersDisposables;
+
+    private Dialog mBattleResultDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +84,11 @@ public class ArenaActivity extends AppCompatActivity implements ArenaContract.Vi
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_action_battle: {
-                mPresenter.battle();
+                final ItemTransformersAdapter adapter = (ItemTransformersAdapter)
+                        mRecyclerView.getAdapter();
+                if (adapter != null) {
+                    mPresenter.battle(adapter.getTransformers());
+                }
                 return true;
             }
             default : {
@@ -90,6 +99,7 @@ public class ArenaActivity extends AppCompatActivity implements ArenaContract.Vi
 
     @Override
     protected void onDestroy() {
+        dismissBattleResultDialog();
         mPresenter.destroy();
         super.onDestroy();
     }
@@ -110,6 +120,13 @@ public class ArenaActivity extends AppCompatActivity implements ArenaContract.Vi
     @Override
     public void showError(String message) {
         Snackbar.make(mRecyclerView.getRootView(), message, Snackbar.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showBattleResultDialog(Battle.Result result) {
+        dismissBattleResultDialog();
+        mBattleResultDialog = new BattleResultDialog(this, result);
+        mBattleResultDialog.show();
     }
 
     private void createToolbar() {
@@ -173,5 +190,11 @@ public class ArenaActivity extends AppCompatActivity implements ArenaContract.Vi
         }
 
         startActivityForResult(intent, TRANSFORMER_REQUEST_CODE);
+    }
+
+    private void dismissBattleResultDialog() {
+        if (mBattleResultDialog != null && mBattleResultDialog.isShowing()) {
+            mBattleResultDialog.dismiss();
+        }
     }
 }
