@@ -65,7 +65,7 @@ public class ItemTransformersAdapter extends RecyclerView.Adapter<ItemTransforme
         return mTransformers.size();
     }
 
-    class ViewHolder extends SwipeItemHelper.ViewHolder {
+    public class ViewHolder extends SwipeItemHelper.ViewHolder {
 
         @BindView(R.id.imgTeam) ImageView mImgTeam;
         @BindView(R.id.tvName) TextView mTvName;
