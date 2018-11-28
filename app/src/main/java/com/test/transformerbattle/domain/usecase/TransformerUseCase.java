@@ -19,7 +19,7 @@ public abstract class TransformerUseCase {
 
     private final CompositeDisposable mDisposables;
     private final DefaultScheduler mWorkScheduler,
-            mPostScheduler;
+                                   mPostScheduler;
 
     public TransformerUseCase(@NonNull DefaultScheduler mWorkScheduler,
                               @NonNull DefaultScheduler mPostScheduler) {
