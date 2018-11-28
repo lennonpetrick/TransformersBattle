@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- TEXT VIEWS -->
+    <dimen name="text_view_hint">14sp</dimen>
+    <dimen name="text_view_title">18sp</dimen>
+    <dimen name="text_view_description">25sp</dimen>
+
     <!-- ARENA ACTIVITY -->
     <dimen name="arena_recycler_view_margin">10dp</dimen>
     <dimen name="arena_new_fab_margin">16dp</dimen>

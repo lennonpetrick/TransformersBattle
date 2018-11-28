@@ -41,6 +41,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_transformer_name"
+                    android:textAppearance="?android:textAppearanceSmall"
                     android:maxLines="1"
                     android:imeOptions="actionDone"
                     android:inputType="textCapWords|textPersonName"/>
@@ -71,14 +72,16 @@
                     android:id="@+id/rbTeamAutobots"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/text_transformer_team_autobots"/>
+                    android:text="@string/text_transformer_team_autobots"
+                    android:textAppearance="?android:textAppearanceSmall"/>
 
                 <RadioButton
                     android:id="@+id/rbTeamDecepticons"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/transformer_radio_button_margin_start"
-                    android:text="@string/text_transformer_team_decepticons"/>
+                    android:text="@string/text_transformer_team_decepticons"
+                    android:textAppearance="?android:textAppearanceSmall"/>
 
             </RadioGroup>
 
