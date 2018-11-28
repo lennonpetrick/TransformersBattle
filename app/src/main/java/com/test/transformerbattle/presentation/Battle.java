@@ -74,17 +74,18 @@ public class Battle {
     }
 
     private boolean fight(Transformer autobot, Transformer decepticon) {
-        if (autobot.getName().equals(AUTOBOT_LEADER)
-                && decepticon.getName().equals(DECEPTICON_LEADER)) {
+        if (autobot.getName().equalsIgnoreCase(AUTOBOT_LEADER)
+                && decepticon.getName().equalsIgnoreCase(DECEPTICON_LEADER)) {
+            destroyAll();
             return false;
         }
 
-        if (autobot.getName().equals(AUTOBOT_LEADER)) {
+        if (autobot.getName().equalsIgnoreCase(AUTOBOT_LEADER)) {
             autobotWins(autobot, decepticon);
             return true;
         }
 
-        if (decepticon.getName().equals(DECEPTICON_LEADER)) {
+        if (decepticon.getName().equalsIgnoreCase(DECEPTICON_LEADER)) {
             decepticonWins(decepticon, autobot);
             return true;
         }
@@ -140,6 +141,13 @@ public class Battle {
         mTransformersDestroyed.add(decepticon);
     }
 
+    private void destroyAll() {
+        mTransformersDestroyed.addAll(mWinningAutobots);
+        mTransformersDestroyed.addAll(mWinningDecepticon);
+        mWinningAutobots.clear();
+        mWinningDecepticon.clear();
+    }
+
     private List<Transformer> getSkippedFighters(int minNumberOfBattles,
                                                            int autobotSize,
                                                            int decepticonSize) {
@@ -184,7 +192,17 @@ public class Battle {
 
             result.setWinningTeam(mWinningDecepticon);
         } else {
-            result.setTie(true);
+            /*
+             * If battle is 0, then there is no winners and it'd be tie, but
+             * the truth is there wasn't battle at all.
+             *
+             * If there was at least one battle, and there is no winners, it means
+             * they all were destroyed in the battle.
+             *
+             * If there was a battle and both were winners, it means a tie.
+             */
+            result.setTie(battleCount > 0
+                    && (autobotSize > 0 || decepticonSize > 0));
         }
 
         return result;

@@ -16,6 +16,7 @@
 
     <!-- BATTLE DIALOG -->
     <string name="btn_battle_close">Close</string>
+    <string name="text_battle_no_fight">No battle!</string>
     <string name="text_battle_all_destroyed">All transformers destroyed :(</string>
     <string name="text_battle_tie">Tie :)</string>
     <string name="text_battle_winning_team">Winning team (%1$s): %2$s</string>
@@ -25,7 +26,7 @@
 
     <plurals name="text_battle_number">
         <item quantity="one">%d battle</item>
-        <item quantity="many">%d battles</item>
+        <item quantity="other">%d battles</item>
     </plurals>
 
     <!-- SHARED -->

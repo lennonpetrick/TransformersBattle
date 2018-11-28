@@ -47,47 +47,60 @@ public class BattleResultDialog extends Dialog {
     }
 
     private void displayResult(Battle.Result result) {
+        final List<Transformer> winningTeam = result.getWinningTeam();
+        final List<Transformer> survivors = result.getSurvivors();
+        final int numberOfBattles = result.getNumberOfBattles();
+
+        if (numberOfBattles == 0) {
+            setDescription(R.string.text_battle_no_fight);
+            hideTeamImage();
+            return;
+        }
+
         if (result.isTie()) {
             setDescription(R.string.text_battle_tie);
             hideTeamImage();
-        } else if (result.getWinningTeam().isEmpty()
-                && result.getSurvivors().isEmpty()) {
+            return;
+        }
+
+        if ((winningTeam == null || winningTeam.isEmpty())
+                && (survivors == null || survivors.isEmpty())) {
             setDescription(R.string.text_battle_all_destroyed);
             hideTeamImage();
-        } else {
-            final int numberOfBattles = result.getNumberOfBattles();
-            final String battleNumberDescription = getContext()
-                    .getResources()
-                    .getQuantityString(R.plurals.text_battle_number,
-                            numberOfBattles, numberOfBattles);
-
-            final String winnersDescription = getWinnersDescription(result.getWinningTeam());
-            final String survivorsDescription = getSurvivorsDescription(result.getSurvivors());
-
-            final StringBuilder description = new StringBuilder();
-            if (!TextUtils.isEmpty(battleNumberDescription)) {
-                description.append(battleNumberDescription);
-            }
-
-            if (!TextUtils.isEmpty(winnersDescription)) {
-                if (description.length() > 0) {
-                    description.append("\n\n");
-                }
-
-                description.append(winnersDescription);
-            }
-
-            if (!TextUtils.isEmpty(survivorsDescription)) {
-                if (description.length() > 0) {
-                    description.append("\n\n");
-                }
-
-                description.append(survivorsDescription);
-            }
-
-            setDescription(description.toString());
-            setTeamImage(result.getWinningTeam());
+            return;
         }
+
+        final String battleNumberDescription = getContext()
+                .getResources()
+                .getQuantityString(R.plurals.text_battle_number,
+                        numberOfBattles, numberOfBattles);
+
+        final String winnersDescription = getWinnersDescription(winningTeam);
+        final String survivorsDescription = getSurvivorsDescription(survivors);
+
+        final StringBuilder description = new StringBuilder();
+        if (!TextUtils.isEmpty(battleNumberDescription)) {
+            description.append(battleNumberDescription);
+        }
+
+        if (!TextUtils.isEmpty(winnersDescription)) {
+            if (description.length() > 0) {
+                description.append("\n\n");
+            }
+
+            description.append(winnersDescription);
+        }
+
+        if (!TextUtils.isEmpty(survivorsDescription)) {
+            if (description.length() > 0) {
+                description.append("\n\n");
+            }
+
+            description.append(survivorsDescription);
+        }
+
+        setDescription(description.toString());
+        setTeamImage(winningTeam);
     }
 
     private String getWinnersDescription(List<Transformer> winningTeam) {
